@@ -24,4 +24,6 @@
 
 
 how to run:
+to test byte to hex to byte 
+cat cat.jpg | java ByteToHex | java HexToByte > catout.jpg
 
