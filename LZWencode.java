@@ -47,6 +47,7 @@ public class LZWencode {
                 addSymbol(symbol);
                 System.out.println(symbol + " " + i);
             }
+            System.out.println("--------------------------------------------------------");
         }
 
         // Method to add a symbol to the trie
@@ -139,7 +140,6 @@ private void addSequenceToTrie(String sequence) {
             return true; // Sequence found in the trie
         }
 
-
         // Method to print the contents of the trie
         public void printTrieContents() {
             System.out.println("Trie Contents:");
@@ -154,12 +154,17 @@ private void addSequenceToTrie(String sequence) {
             }
 
             // Print the contents of the current node
-            System.out.print("Node: ");
+            System.out.print("Node " + sequence.toString() + ": ");
+            boolean hasChildren = false;
             for (int i = 0; i < SIZE; i++) {
                 if (node.children[i] != null) {
                     char symbol = Character.forDigit(i, 16);
                     System.out.print(symbol + " ");
+                    hasChildren = true;
                 }
+            }
+            if (!hasChildren) {
+                System.out.print("(Empty)");
             }
             System.out.println();
 
@@ -173,7 +178,6 @@ private void addSequenceToTrie(String sequence) {
                 }
             }
         }
-
 
 
     }
